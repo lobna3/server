@@ -31,3 +31,24 @@ model User {
   dateOfBirth   DateTime 
   createdAt     DateTime @default(now())
 }
+
+model CampingPost {
+  id           Int           @id @default(autoincrement())
+  title        String
+  description  String
+  location     String
+  startDate    DateTime
+  endDate      DateTime
+  equipment    String[]       @default([])
+  places       Int
+  ageCategory  AgeCategory
+  images       String[]       @default([])
+  organizerId  Int
+  organizer    User           @relation(fields: [organizerId], references: [id])
+}
+
+enum AgeCategory {
+  ADULT
+  TEEN
+  KIDS
+}
