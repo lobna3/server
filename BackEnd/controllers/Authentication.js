@@ -27,12 +27,14 @@ const validateRegister = () => [
 //// registarion Logic
 const registerUser = async (req, res) => {
 
-    
+  ///check for validations errors  
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
 
+
+  /// Register User
   const { name, email, password } = req.body;
 
   try {
