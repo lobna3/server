@@ -12,11 +12,12 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-
 enum Gender {
   Men
   Female
 }
+
+
 
 model User {
   id            Int      @id @default(autoincrement())
@@ -34,10 +35,23 @@ model User {
 }
 
 
+model CampingPost {
+  id           Int           @id @default(autoincrement())
+  title        String
+  description  String
+  location     String
+  startDate    DateTime
+  endDate      DateTime
+  equipment    String[]       @default([])
+  places       Int
+  ageCategory  AgeCategory
+  images       String[]       @default([])
+  organizerId  Int
+  organizer    User           @relation(fields: [organizerId], references: [id])
+}
 
-
-
-
-
-
-
+enum AgeCategory {
+  ADULT
+  TEEN
+  KIDS
+}

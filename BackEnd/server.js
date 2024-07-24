@@ -19,6 +19,4 @@ app.use('/api/users',usersRoutes)
 
 const port = 5000
 
-
-app.listen(port,()=>console.log(`App listening on port ${port}!`))
-
+app.listen(port,()=>console.log(App listening on port ${port}!))

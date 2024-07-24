@@ -9,7 +9,12 @@ const fetchUsers = async (req, res) => {
 };
 
 
+const fetchUsers = async (req, res) => {
+    const users = await prisma.user.findMany({
+    });
 
+    return res.json({ status: 200, data: users });
+};
 
 
 module.exports = {
