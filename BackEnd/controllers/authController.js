@@ -21,16 +21,16 @@ const Login = async (req, res) => {
             return res.status(400).json({ error: "User not found. Please sign up." });
         }
 
-        if (req.body.password !== user.password) {
+       /* if (req.body.password !== user.password) {
             return res.status(400).json({ error: "Wrong Password" });
-        }
+        }*/
 
 
         // Comparing the provided password with the hashed password stored in the database
-        /* const isMatch = await bcrypt.compare(req.body.password, user.password);
+         const isMatch = await bcrypt.compare(req.body.password, user.password);
          if (!isMatch) {
              return res.status(400).json({ error: "Wrong Password" });
-         }*/
+         }
 
 
         // If credentials are correct, create a JWT token

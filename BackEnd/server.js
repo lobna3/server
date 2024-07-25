@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require ('cors')
 const usersRoutes = require ('./routes/user.js')
+const campsRoutes= require ('./routes/camPost.js')
 const cookieParser = require('cookie-parser')
 const passport = require('passport')
 
@@ -16,6 +17,7 @@ app.use(passport.initialize())
 require('./security/passport')(passport)
 
 app.use('/api/users',usersRoutes)
+app.use('/api/camps',campsRoutes)
 
 const port = 5000
 
