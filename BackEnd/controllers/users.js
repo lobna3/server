@@ -14,7 +14,6 @@ const fetchUsers = async (req, res) => {
     return res.json({ status: 200, data: users });
 };
 
-
 module.exports = {
     fetchUsers
 }

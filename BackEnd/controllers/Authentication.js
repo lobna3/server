@@ -1,5 +1,8 @@
 const { body, validationResult } = require('express-validator')
+
 const bcrypt = require("bcryptjs")
+
+
 const prisma = require('../database/prisma.js')
 
 
@@ -65,3 +68,4 @@ module.exports = {
   validateRegister,
   registerUser
 }
+
